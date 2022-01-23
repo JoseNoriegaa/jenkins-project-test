@@ -19,7 +19,11 @@ app.get('/', (req, res) => {
   });
 });
 
-// Starting the server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+  // Starting the server
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
